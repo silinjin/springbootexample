@@ -1,11 +1,10 @@
-package com.example.model;
+package com.example.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "USER")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

@@ -1,12 +1,10 @@
-package com.example.controller;
+package com.example.controllers;
 
-import com.example.model.User;
-import com.example.repository.UserRepository;
+import com.example.entities.User;
+import com.example.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +15,7 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping(value = "/user")
-    public List<User> getUser(){
+    public List<User> getUsers(){
         return userRepository.findAll();
     }
 
@@ -25,9 +23,10 @@ public class UserController {
     public User createUser(
             @RequestParam String userName,
             @RequestParam String password){
-        User user =new User();
+        User user=new User();
         user.setUserName(userName);
         user.setPassword(password);
         return userRepository.save(user);
     }
+
 }
