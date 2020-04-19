@@ -29,4 +29,9 @@ public class UserController {
         return userRepository.save(user);
     }
 
+    @GetMapping(value = "/")
+    public String welcome(){
+        return "index";
+    }
+
 }
